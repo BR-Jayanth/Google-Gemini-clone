@@ -3,19 +3,17 @@ import {
     HarmCategory,
     HarmBlockThreshold,
 } from "@google/generative-ai";
-// google api key
-const apiKey = 'AIzaSyD_nTg1Ox52RAFPUarV0VRt0nh8qCmkfuM';
 
 // node --version # Should be >= 18
 // npm install @google/generative-ai
 
-
-
+const API_KEY = process.env.REACT_APP_GEMINI_APP_API;
 const MODEL_NAME = "gemini-1.5-pro-latest";
-const API_KEY = apiKey;
+
 
 async function runChat(prompt) {
-    const genAI = new GoogleGenerativeAI(API_KEY);
+    
+const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
     const generationConfig = {
